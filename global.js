@@ -20,3 +20,17 @@ if (!user || !greeting){
 } else {
 	console.log(`welcome ${user} , ${greeting}`);
 }
+
+var replies = []
+
+var questions = ["what is your name ?" , 
+"what is your fav hobby?" , 
+"what is your pref programming language? "];
+
+function interview(i) {
+	// body...
+	process.stdout.write(`\n\n\n ${questions[i]}`);
+	process.stdout.write("   > \n\n");
+}
+
+interview(0)
