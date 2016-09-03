@@ -33,4 +33,24 @@ function interview(i) {
 	process.stdout.write("   > \n\n");
 }
 
+process.stdin.on('data', function(data){
+
+	replies.push(data.toString().trim());
+
+	if (replies.length < questions.length){
+		interview(replies.length);
+	} else {
+		process.exit();
+	}
+})
+
+
+process.on('exit' , function(){
+	process.stdout.write("\n\n\n\n");
+
+	process.stdout.write(`Yaay ${replies[1] } ${replies[0] } youll write ${replies[2]}`)
+
+	process.stdout.write("\n\n\n\n");
+})
+
 interview(0)
