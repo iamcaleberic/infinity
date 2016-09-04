@@ -10,12 +10,16 @@ rl.question("What robot disguised person do you know? " , function(answer) {
 	
 	realNigga.name = answer;
 
+	fs.writeFileSync(realNigga.name + ".md" , `${realNigga.name}\n==========\n\n`)
+
 	rl.setPrompt(`What would ${realNigga.name} say?`);
 	
 	rl.prompt();
 
 	rl.on('line', function(saying) {
 		realNigga.sayings.push(saying.trim());
+
+		fs.appendFile(realNigga.name + ".md" , `* ${saying.trim()} \n`);
 
 		if (saying.toLowerCase().trim() === 'exit'){
 			rl.close();
