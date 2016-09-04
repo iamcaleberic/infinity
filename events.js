@@ -1,15 +1,23 @@
-var Nigga = require("./lib/Nigga")
+var Nigga = require("./lib/Nigga");
 
-var cesar = new Nigga("Jasourne Bourne");
+var jason  = new Nigga("Jasourne Bourne");
+var avicii = new Nigga("DJ avicii");
 
-cesar.on('speak' , function(said){
+
+avicii.on('speak' , function(said) {
+
+	console.log(`${this.name} -> ${said}`);
+
+})
+
+jason.on('speak' , function(said){
 
 	console.log(`${this.name}: ${said} `);
 
 });
 
-cesar.emit('speak' , "Welcome to culiacan Mexico"); 
-
+jason.emit('speak' , "Welcome to culiacan Mexico"); 
+avicii.emit('speak' , "Electronic music"); 
 
 
 
