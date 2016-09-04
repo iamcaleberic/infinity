@@ -14,7 +14,10 @@ rl.question("What robot disguised person do you know? " , function(answer) {
 	rl.prompt();
 
 	rl.on('line', function(saying) {
-		console.log(saying.trim());
+
+		rl.setPrompt(`What else would ${realNigga.name} say? ('exit' to leave)`);
+
+		rl.prompt();
 	})
 
 	console.log(answer);
