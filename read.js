@@ -1,5 +1,12 @@
 var fs = require("fs"); 
 
-var contents = fs.readFileSync("./lib/parle.md" , "UTF-8");
+fs.readFile("./lib/parle.md" , "UTF-8" , function(err , contents) {
 
-console.log(contents);
+	if (err){
+		console.log(err);
+	}
+	
+	console.log(contents);
+
+});
+
