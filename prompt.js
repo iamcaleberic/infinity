@@ -1,6 +1,6 @@
 var readline =  require('readline');
 var rl = readline.createInterface(process.stdin , process.stdout);
-
+var fs = require("fs");
 var realNigga = {
 	name: '',
 	sayings: []
