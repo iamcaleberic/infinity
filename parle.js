@@ -17,5 +17,7 @@ var interval =  setInterval(function() {
 process.stdin.on('data' , function(data) {
 
 	console.log(`STDIN Data Received -> ${data.toString().trim()}`);
+	clearInterval(interval);
+	process.exit();
 
 });
