@@ -8,7 +8,7 @@ function writeWaitingPercent(p) {
 
 	process.stdout.clearLine(); // clears current stdout output 
 	process.stdout.cursorTo(0);// move cursor to beginning of line
-	process.stdout.write(`waiting ... ${p}`);
+	process.stdout.write(`waiting ... ${p}%`);
 }
 
 var interval = setInterval(function(){
@@ -22,6 +22,7 @@ var interval = setInterval(function(){
 setTimeout(function(){
 	clearInterval(interval); // Stop after time runs out
 	writeWaitingPercent(100);
+	process.stdout.write("\n\n\n");
 	console.log("Finito");
 
 }, waitTime);
