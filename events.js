@@ -1,12 +1,4 @@
-var EventEmitter = require('events').EventEmitter;
-var util = require('util');
-
-var Nigga = function(name){
-	this.name = name;
-}  
-
-
-util.inherits(Nigga , EventEmitter);
+var Nigga = require("./lib/Nigga")
 
 var cesar = new Nigga("Jasourne Bourne");
 
@@ -16,20 +8,7 @@ cesar.on('speak' , function(said){
 
 });
 
-cesar.emit('speak' , "Welcome to culiacan Mexico");
-
-
-
-
-
-
-
-
-
-
-
-
-
+cesar.emit('speak' , "Welcome to culiacan Mexico"); 
 
 
 
