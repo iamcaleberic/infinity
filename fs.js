@@ -11,3 +11,5 @@ fs.readdir('./lib', function(err, files) {
 });
 
 console.log("Reading files...");
+
+// using sync instead of async has its own drawbacks
