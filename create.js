@@ -13,3 +13,7 @@ European cities
 
 `;
 
+fs.writeFile('city.md' , md.trim() , function(err) {
+	
+	console.log("File created");
+});
