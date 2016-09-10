@@ -1,4 +1,8 @@
 var fs = require("fs");
+if (fs.existsSync("libs")){
+    console.log("Directory exists");
+
+} else {
 
 fs.mkdir("libs" , function(err){
     if (err){
@@ -7,3 +11,5 @@ fs.mkdir("libs" , function(err){
         console.log("Directory created");
     }
 });
+
+}
