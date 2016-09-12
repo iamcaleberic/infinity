@@ -2,7 +2,7 @@ var http = require("http");
 var fs   = require("fs");
 
 var options = {
-    hostname: "http://localhost:3000",
+    hostname: "localhost",
     port:3000,
     path:"/",
     method: "GET"
@@ -14,7 +14,7 @@ var req = http.request(options , function(res){
     console.log(`Server Status: ${res.statusCode}`);
     console.log("Response Headers: %j", res.headers);
 
-    res.set("UTF-8");
+    res.setEncoding("UTF-8");
 
     res.once("data", function(chunk){
         console.log(chunk)
@@ -41,4 +41,4 @@ req.on("error" , function(err){
     console.log(`problem with request: ${err.message}`);
 });
 
-req.end();
+req.end();  
