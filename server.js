@@ -7,4 +7,5 @@ var server = http.createServer(function(req , res){
 
 });
 
-server.litsen(3000);
+server.litsen(4000);
+console.log("server is running on port 4000"); 
