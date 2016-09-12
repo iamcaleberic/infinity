@@ -10,22 +10,28 @@ rl.question("What robot disguised person do you know? " , function(answer) {
 	
 	realNigga.name = answer;
 
-	fs.writeFileSync(realNigga.name + ".md" , `${realNigga.name}\n==========\n\n`)
+	var stream =  fs.createWriteStream(realNigga.name + ".md");
+
+	stream.write(`${realNigga.name}\n=============\n\n`);
+
+	// fs.writeFileSync(realNigga.name + ".md" , `${realNigga.name}\n==========\n\n`)
 
 	rl.setPrompt(`What would ${realNigga.name} say?`);
 	
 	rl.prompt();
 
 	rl.on('line', function(saying) {
-		realNigga.sayings.push(saying.trim());
-
-		fs.appendFile(realNigga.name + ".md" , `* ${saying.trim()} \n`);
+	
+		// fs.appendFile(realNigga.name + ".md" , `* ${saying.trim()} \n`);
 
 		if (saying.toLowerCase().trim() === 'exit'){
+			stream.close();
 			rl.close();
 		} else{
+			realNigga.sayings.push(saying.trim());
+			stream.write(`*${saying.trim()}\n`);
 			rl.setPrompt(`What else would ${realNigga.name} say? ('exit' to leave)`);
-
+			
 			rl.prompt();
 		}
 		
