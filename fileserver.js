@@ -20,6 +20,13 @@ http.createServer(function(req, res){
 
         fileStream.pipe(res);
 
+    } else if (req.url.match(/.jpg/ || /.png/  )) {
+
+        var imgPath = path.join(__dirname , public, req.url);
+        var imgStream =  fs.createReadStream(imgPath);
+
+        res.writeHead(200, {"Content-Type":"image/jpeg"} || {"Content-Type":"image/png"})
+        imageStream.pipe(res);
 
     } else {
         res.writeHead(404 , {"Content-Type":"text/plain"});
@@ -28,3 +35,6 @@ http.createServer(function(req, res){
 
 
 }).listen(4000); 
+
+
+console.log("File server running on port 4000");
