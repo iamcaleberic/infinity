@@ -1,9 +1,19 @@
 var http = require("http");
 var server = http.createServer(function(req , res){
 
-    res.writeHead(200, {"Content-Type": "text/plain"});
+    res.writeHead(200, {"Content-Type": "text/html"});
 
-    res.end("Hello World");
+    res.end(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Node.js</title>
+        </head>
+        <body>
+            <h1>Node JS server</h1>
+        </body
+        </html>
+    `);
 
 });
 
