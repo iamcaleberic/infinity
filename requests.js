@@ -23,5 +23,17 @@ var req = http.request(options , function(res){
     res.on("data" , function(chunk){
         console.log(`--chunk--${chunk.length}`);
         responseBody += chunk;
+    });
+
+    res.on("end", function(){
+        fs.writeFile("iamcaleb.html" , responseBody, function(err){
+            if (err){
+                throw err;
+            }
+            console.log("File Downloaded");
+            
+        });
     })
+
+
 });
